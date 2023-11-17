@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AdminModule } from './Admin/Admin.module';
+import { ExpertModule } from './expert/expert.module';
 
 @Module({
   imports: [AdminModule,ExpertModule,TypeOrmModule.forRoot(
