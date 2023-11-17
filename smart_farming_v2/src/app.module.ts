@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AdminModule } from './Admin/Admin.module';
 
 @Module({
-  imports: [AdminModule,TypeOrmModule.forRoot(
+  imports: [AdminModule,ExpertModule,TypeOrmModule.forRoot(
     { type: 'postgres',
      host: 'localhost',
      port: 5432,
