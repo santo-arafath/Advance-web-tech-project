@@ -1,37 +1,44 @@
 // admin.dto.ts
 
-import { IsString, IsNotEmpty, IsAlphanumeric, MinLength, IsEmail, IsInt, Min, IsNumber } from 'class-validator';
+import { IsString, IsNotEmpty, IsAlphanumeric, MinLength, IsEmail, IsInt, Min, IsNumber,Matches } from 'class-validator';
 
 export class AdminInfoDTO {
   @IsString()
-  @IsNotEmpty()
+  @IsNotEmpty({message: 'Please enter name box is empty'}) 
   name: string;
 
-  @IsString()
-  @IsNotEmpty()
-  @IsAlphanumeric()
-  @MinLength(4)
+  @IsNotEmpty({message: 'Please enter a valid username'}) 
+  @MinLength(5, { message: 'Username must be at least 5 characters ' })
   username: string;
 
-  @IsString()
+  
   @IsNotEmpty()
-  @MinLength(6)
+  @Matches(/^(?=(?:[^A-Z]*[A-Z]){1})(?=(?:[^a-z]*[a-z]){2})[A-Za-z]{4}(?=.*[0-9!@#$%^&*])[0-9!@#$%^&*]+/, { message: 'Password must contain capital letter 1 special char  and numbers' })
+
   password: string;
 
-  @IsString()
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'Adress cannot be empty' })
   address: string;
 
-  @IsEmail()
-  @IsNotEmpty()
+  @IsEmail({ message: 'Invalid email' })
+  @IsNotEmpty({message: 'Please enter email box is empty'})
   email: string;
 
-  
+  @IsNotEmpty()
   age: number;
 
-  
+  @IsNotEmpty()
   filename: string;
 }
+
+
+export class LoginDto {
+  username: string;
+  password: string;
+}
+
+
+
 
 export class UpdateAdminDto {
   @IsString()
@@ -50,3 +57,7 @@ export class UpdateAdminDto {
   @Min(0)
   age: number;
 }
+
+
+
+

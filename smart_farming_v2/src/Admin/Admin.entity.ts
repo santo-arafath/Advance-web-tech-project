@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { ExpertEntity } from "src/Expert/Expert.entity";
+import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('Admin_information')
 export class AdminEntity {
@@ -21,13 +22,19 @@ export class AdminEntity {
 
     @Column()
     filename: string;
-
+     
+    @ManyToMany(() => ExpertEntity, expert => expert.admins)
+    @JoinTable()
+    experts: ExpertEntity[];
+    
 
 
 }
 
 
-@Entity('/Farmer_information')
+
+
+@Entity('Farmer_information')
 export class FarmerEntity {
     @PrimaryGeneratedColumn()
     id: number;
