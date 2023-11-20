@@ -14,7 +14,7 @@ import { SolutionEntity } from './expert.entity';
 import { SessionGuard } from './expert.guards';
 import { MessagingGuard } from './messaging.guards';
 
-@Controller()
+@Controller('expert')
 export class ExpertController {
   constructor(private readonly expertService: ExpertService) {}
 
