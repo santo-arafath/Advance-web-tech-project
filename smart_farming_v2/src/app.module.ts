@@ -5,7 +5,7 @@ import { FarmerModule } from './farmer/farmer.module';
 import { ExpertModule } from './expert/expert.module';
 
 @Module({
-  imports: [AdminModule,ExpertModule,TypeOrmModule.forRoot(
+  imports: [AdminModule,ExpertModule, FarmerModule, TypeOrmModule.forRoot(
     { type: 'postgres',
      host: 'localhost',
      port: 5432,
