@@ -20,7 +20,7 @@ import { MailerModule } from '@nestjs-modules/mailer';
       secure: true,
       auth: {
         user: 'binteoysha@gmail.com', 
-        pass: 'rydq vkfi xcrp kbwm', 
+        pass: 'My app password', 
       },
     },
   }),
